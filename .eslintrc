@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "extends": [
+    "sf-react"
+  ],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "import/extensions" : 0,
+    "import/no-extraneous-dependencies": 0
+  }
+}
