@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import styles from "./AnExample.scss";
+import styles from './AnExample.scss';
 
 const AnExample = ({ msg }) => {
   const [count, setCount] = useState(1);
@@ -13,11 +13,11 @@ const AnExample = ({ msg }) => {
 };
 
 AnExample.propTypes = {
-  msg: PropTypes.string
+  msg: PropTypes.string,
 };
 
 AnExample.defaultProps = {
-  msg: "HAPPY HOOKS"
+  msg: 'HAPPY HOOKS',
 };
 
 export default AnExample;

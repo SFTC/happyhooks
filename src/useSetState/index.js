@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
 const useSetState = (initialValue = {}) => {
   const [state, set] = useState(initialValue);
@@ -7,10 +7,10 @@ const useSetState = (initialValue = {}) => {
       const isPatchFunc = patch instanceof Function;
       set(prevState => ({
         ...prevState,
-        ...(isPatchFunc ? patch(prevState) : patch)
+        ...(isPatchFunc ? patch(prevState) : patch),
       }));
     },
-    [set]
+    [set],
   );
   return [state, setState];
 };
