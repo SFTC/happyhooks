@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button, Divider } from 'antd';
-import useSetState from '../src/useSetState/index.js';
+import useSetState from '../src/useSetState/index';
 
 storiesOf('useSetState', module).add('basic usage', () => {
   const [obj, setObj] = useSetState({
