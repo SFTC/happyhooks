@@ -26,10 +26,6 @@
     "type": "git",
     "url": ""
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.com/"
-  },
   "keywords": [
     "rollup",
     "react",
