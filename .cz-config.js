@@ -1,27 +1,41 @@
 module.exports = {
   types: [
-    { value: "feat", name: "feat: 新功能" },
-    { value: "fix", name: "fix: 修复 BUG" },
+    {
+      value: "feat",
+      name: "新功能"
+    },
+    {
+      value: "fix",
+      name: "修复 BUG"
+    },
     {
       value: "refactor",
-      name:
-        "refactor: 重构代码，理论上不影响现有功能 (不是修复 bug 或是添加新功能)"
+      name: "重构代码，理论上不影响现有功能 (不是修复 bug 或是添加新功能)"
     },
     {
       value: "style",
-      name: "style: 修改代码格式，不影响代码逻辑 (空格、代码格式化、缺少分号等)"
+      name: "修改代码格式，不影响代码逻辑 (空格、代码格式化、缺少分号等)"
     },
     {
       value: "chore",
-      name: "chore: 构建过程或辅助工具和库 (如文档生成) 的更改"
+      name: "构建过程或辅助工具和库 (如文档生成) 的更改"
     },
-    { value: "test", name: "test: 增加或修改测试用例" },
-    { value: "docs", name: "docs: 修改文档" },
+    {
+      value: "test",
+      name: "增加或修改测试用例"
+    },
+    {
+      value: "docs",
+      name: "修改文档"
+    },
     {
       value: "perf",
-      name: "perf: 提升性能"
+      name: "提升性能"
     },
-    { value: "revert", name: "revert: 回滚到某一个版本 (带上版本号)" }
+    {
+      value: "revert",
+      name: "回滚到某一个版本 (带上版本号)"
+    }
   ],
   scopes: [
     "hooks",
