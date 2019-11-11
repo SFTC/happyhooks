@@ -1,20 +1,20 @@
-const WebpackBuildNotifierPlugin = require("webpack-build-notifier");
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
 module.exports = async ({ config }) => {
   return {
     ...config,
     resolve: {
       ...config.resolve,
-      extensions: [...config.resolve.extensions, ".ts", ".tsx"]
+      extensions: [...config.resolve.extensions, '.ts', '.tsx'],
     },
-    devtool: "source-map",
+    devtool: 'source-map',
     plugins: [
       ...config.plugins,
       new WebpackBuildNotifierPlugin({
-        title: "Happy Hooks Build",
+        title: 'Happy Hooks Build',
         warningSound: true,
-        failureSound: true
-      })
+        failureSound: true,
+      }),
     ],
     module: {
       rules: [
@@ -24,28 +24,28 @@ module.exports = async ({ config }) => {
           exclude: /(node_modules)/,
           use: [
             {
-              loader: require.resolve("awesome-typescript-loader"),
+              loader: require.resolve('awesome-typescript-loader'),
               options: {
                 babelOptions: {
-                  presets: ["@babel/preset-env", "@babel/preset-react"],
+                  presets: ['@babel/preset-env', '@babel/preset-react'],
                   plugins: [
                     [
-                      "import",
+                      'import',
                       {
-                        libraryName: "antd",
-                        libraryDirectory: "es",
-                        style: true
-                      }
-                    ]
-                  ]
-                }
-              }
+                        libraryName: 'antd',
+                        libraryDirectory: 'es',
+                        style: true,
+                      },
+                    ],
+                  ],
+                },
+              },
             },
             // Optional
             {
-              loader: require.resolve("react-docgen-typescript-loader")
-            }
-          ]
+              loader: require.resolve('react-docgen-typescript-loader'),
+            },
+          ],
         },
         // {
         //   test: /\.(js|jsx)$/,
@@ -73,41 +73,41 @@ module.exports = async ({ config }) => {
         {
           test: /\.css$/,
           exclude: /(node_modules)/,
-          use: [{ loader: "style-loader" }, { loader: "css-loader" }]
+          use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
         },
         {
           test: /\.less$/,
           use: [
             {
-              loader: "style-loader"
+              loader: 'style-loader',
             },
             {
-              loader: "css-loader"
+              loader: 'css-loader',
             },
             {
-              loader: "less-loader",
+              loader: 'less-loader',
               options: {
                 // modifyVars: antdTheme,    // 如果要自定义主题样式
-                javascriptEnabled: true
-              }
-            }
-          ]
+                javascriptEnabled: true,
+              },
+            },
+          ],
         },
         {
           test: /\.scss$/,
           use: [
-            { loader: "style-loader" },
+            { loader: 'style-loader' },
             {
-              loader: "css-loader",
+              loader: 'css-loader',
               options: {
                 importLoaders: 1,
-                modules: true
-              }
+                modules: true,
+              },
             },
-            { loader: "sass-loader" }
-          ]
-        }
-      ]
-    }
+            { loader: 'sass-loader' },
+          ],
+        },
+      ],
+    },
   };
 };
