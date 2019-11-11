@@ -1,32 +1,38 @@
-import { configure, addDecorator } from "@storybook/react";
-import { setOptions } from "@storybook/addon-options";
-import { setDefaults } from "@storybook/addon-info";
-import centered from "@storybook/addon-centered";
-import { checkA11y } from "@storybook/addon-a11y";
-import "antd/dist/antd.less";
+import { configure, addDecorator } from '@storybook/react';
+import { withOptions } from '@storybook/addon-options';
+import { withInfo } from '@storybook/addon-info';
+import centered from '@storybook/addon-centered/react';
+import { withA11y } from '@storybook/addon-a11y';
+import 'antd/dist/antd.less';
 
 addDecorator(centered);
-addDecorator(checkA11y);
-
-setDefaults({
-  inline: false,
-  header: true,
-  source: true
-});
+addDecorator(withA11y);
+addDecorator(
+  withInfo({
+    inline: false,
+    header: true,
+    source: true,
+  }),
+);
 
 setTimeout(
   () =>
-    setOptions({
-      name: "HappyHooks",
-      url: "http://www.baidu.com",
+    withOptions({
       showAddonPanel: true,
-      addonPanelInRight: true
+      addonPanelInRight: true,
+      theme: {
+        brandTitle: 'HappyHooks',
+        brandUrl: 'http://www.baidu.com',
+      },
     }),
-  1000
+  1000,
 );
 
 // 自动加载stories目录下story
-const req = require.context("../stories", true, /.story.jsx$/);
-req.keys().forEach(filename => req(filename));
+const req = require.context('../stories', true, /.story.tsx$/);
+
+function loadStories() {
+  req.keys().forEach(filename => req(filename));
+}
 
 configure(loadStories, module);

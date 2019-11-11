@@ -2,6 +2,7 @@ import babel from 'rollup-plugin-babel';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import typescript from 'rollup-plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import filesize from 'rollup-plugin-filesize';
 import autoprefixer from 'autoprefixer';
@@ -10,7 +11,7 @@ import localResolve from 'rollup-plugin-local-resolve';
 import pkg from './package.json';
 
 const config = {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   output: [
     {
       file: pkg.browser,
@@ -34,10 +35,14 @@ const config = {
     babel({ exclude: 'node_modules/**' }),
     localResolve(),
     resolve({
-      extensions: ['.js', '.jsx', '.json'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     }),
     commonjs(),
     filesize(),
+    typescript({
+      exclude: 'node_modules/**',
+      typescript: require('typescript'),
+    }),
   ],
 };
 

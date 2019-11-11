@@ -15,7 +15,7 @@
     "codecov": "codecov",
     "deploy-storybook-ci": "storybook-to-ghpages --ci",
     "gc": "commit",
-    "lint": "eslint --ext .js,.jsx .",
+    "lint": "eslint --ext .js,.jsx,.tsx,.ts",
     "prepare": "npm run build",
     "semantic-release": "semantic-release",
     "start": "rollup -c -w",
@@ -25,10 +25,6 @@
   "repository": {
     "type": "git",
     "url": ""
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.com/"
   },
   "keywords": [
     "rollup",
@@ -51,30 +47,38 @@
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-centered": "^5.1.9",
     "@storybook/addon-console": "^1.2.1",
-    "@storybook/addon-info": "^5.1.9",
+    "@storybook/addon-info": "^5.3.0-alpha.40",
     "@storybook/addon-options": "^5.1.9",
     "@storybook/channels": "^5.1.9",
     "@storybook/react": "^5.1.9",
     "@storybook/storybook-deployer": "^2.8.1",
+    "@types/jest": "^24.0.22",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
     "antd": "^3.23.6",
     "autoprefixer": "^9.6.1",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.12.2",
     "babel-preset-minify": "^0.5.0",
     "codecov": "^3.5.0",
     "css-loader": "^3.1.0",
+    "cz-customizable": "^6.2.0",
     "enzyme": "^3.10.0",
     "eslint": "^5.16.0",
-    "eslint-config-sf-react": "^1.3.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
     "husky": "^3.0.2",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "lint-staged": "^9.4.2",
     "node-sass": "^4.12.0",
     "postcss": "^7.0.17",
     "prettier": "^1.18.2",
+    "react-docgen-typescript-loader": "^3.3.0",
     "rollup": "^1.17.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
@@ -83,6 +87,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-typescript": "^1.0.1",
     "sass-loader": "^7.1.0",
     "semantic-release": "^15.13.19",
     "source-map-loader": "^0.2.4",
@@ -91,6 +96,8 @@
     "stylelint-config-prettier": "^6.0.0",
     "stylelint-config-standard": "^19.0.0",
     "travis-deploy-once": "^5.0.11",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.2",
     "webpack": "^4.38.0",
     "webpack-build-notifier": "^1.0.3",
     "webpack-cli": "^3.3.6",
@@ -109,5 +116,24 @@
       "pre-push": "npm run test"
     }
   },
-  "dependencies": {}
+  "prettier": {
+    "semi": true,
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": true,
+    "endOfLine": "lf"
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-config-prettier"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  }
 }

@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button, Divider } from 'antd';
-import useSetState from '../src/useSetState/index.js';
+import useSetState from '../src/useSetState/index';
 
 storiesOf('useSetState', module).add('basic usage', () => {
   const [obj, setObj] = useSetState({
@@ -13,7 +13,7 @@ storiesOf('useSetState', module).add('basic usage', () => {
       <pre>key1: {obj.key1}</pre>
       <pre>key2: {obj.key2}</pre>
       <Divider />
-      <Button type='primary' onClick={() => setObj({ key1: obj.key1 + 1 })}>
+      <Button type='primary' onClick={(): void => setObj({ key1: obj.key1 + 1 })}>
         change state
       </Button>
     </>
