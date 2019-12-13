@@ -13,7 +13,7 @@ storiesOf('useSetState', module).add('basic usage', () => {
       <pre>key1: {obj.key1}</pre>
       <pre>key2: {obj.key2}</pre>
       <Divider />
-      <Button type='primary' onClick={() => setObj({ key1: obj.key1 + 1 })}>
+      <Button type='primary' onClick={(): void => setObj({ key1: obj.key1 + 1 })}>
         change state
       </Button>
     </>
