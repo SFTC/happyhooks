@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react';
 import { findDOMNode } from 'react-dom';
 
-export default ({ originColumns, dom }) => {
-  const [realWidth, setRealWidth] = useState(null);
+const useTableColumns = ({ originColumns, dom }) => {
+  const [realWidth, setRealWidth] = useState(0);
 
   let totalWidth = 0;
-  originColumns.forEach(item => {
+  originColumns.forEach((item: any) => {
     if (item.width) {
       totalWidth += item.width;
     }
   });
 
   if (originColumns.length > 0) {
-    originColumns[originColumns.length - 1].fixed = // eslint-disable-line
-      realWidth && realWidth < totalWidth ? 'right' : false;
-    originColumns[0].fixed = realWidth && realWidth < totalWidth ? 'left' : false; // eslint-disable-line
+    originColumns[originColumns.length - 1].fixed = realWidth < totalWidth ? 'right' : false; // eslint-disable-line
+    originColumns[0].fixed = realWidth < totalWidth ? 'left' : false; // eslint-disable-line
   }
 
   useEffect(() => {
@@ -39,3 +38,5 @@ export default ({ originColumns, dom }) => {
     scrollX: totalWidth,
   };
 };
+
+export default useTableColumns;
