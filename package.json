@@ -1,6 +1,6 @@
 {
   "name": "happyhooks",
-  "version": "0.0.3-development",
+  "version": "0.0.4-development",
   "description": "React Hooks Library for SFTC",
   "main": "build/index.cjs.js",
   "module": "build/index.esm.js",
